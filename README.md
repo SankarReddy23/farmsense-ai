@@ -1,5 +1,7 @@
 # FarmSense AI 🌾
 
+![FarmSense AI Cover Banner](assets/cover_page_banner.png)
+
 FarmSense AI is a secure, multi-agent agronomic and market advisor designed to support small-scale farmers in India. It leverages the Google Agent Development Kit (ADK 2.0) workflow graph, custom Model Context Protocol (MCP) tools, and robust safety guardrails to diagnose crop diseases, provide regional weather advisories, and fetch mandi market prices.
 
 ## Prerequisites
@@ -44,6 +46,8 @@ FarmSense AI is a secure, multi-agent agronomic and market advisor designed to s
 
 The following diagram illustrates the multi-agent orchestration, MCP connection, and safety checkpoints:
 
+![FarmSense AI Solution Architecture](assets/architecture_diagram.png)
+
 ```mermaid
 graph TD
     START -->|User Query| SC["Security Checkpoint<br>(PII Redaction + Injection Filter)"]
@@ -57,10 +61,10 @@ graph TD
     MA -.->|MCP Tools| MCP["MCP Server<br>(get_mandi_prices)"]
     
     ORC -->|Synthesized Output| VER["Verifier Node"]
-    VER -->|needs_review<br>(Chemicals/Transactions)| HITL["Human-in-the-Loop Review<br>(Agronomist Approval Pause)"]
-    VER -->|auto_approved| FO["Final Output Node"]
-    HITL -->|Approved / Rejected| FO
-    SA -->|Direct Output| FO
+    VER -->|"needs_review"| HITL["Human-in-the-Loop Review<br>(Agronomist Approval Pause)"]
+    VER -->|"auto_approved"| FO["Final Output Node"]
+    HITL --> FO
+    SA --> FO
 ```
 
 ## How to Run
