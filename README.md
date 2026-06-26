@@ -114,6 +114,10 @@ graph TD
      Get-Process -Id (Get-NetTCPConnection -LocalPort 18081, 8090 -ErrorAction SilentlyContinue).OwningProcess | Stop-Process -Force
      ```
 
+## Demo Script
+
+You can find the spoken presentation script for FarmSense AI in [DEMO_SCRIPT.txt](file:///c:/Users/sankar%20reddy/Downloads/Ai_agents/day3/adk-workspace/farmsense-ai/DEMO_SCRIPT.txt). It contains cues to show the diagram, cover banner, and run the 3 test cases.
+
 ## Push to GitHub
 
 1. Create a new repo at https://github.com/new
